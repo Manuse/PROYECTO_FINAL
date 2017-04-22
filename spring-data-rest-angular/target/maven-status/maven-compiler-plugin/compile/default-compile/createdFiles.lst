@@ -1,0 +1,12 @@
+com\rest\model\Subject.class
+com\rest\model\Staff.class
+com\rest\controller\MainController.class
+com\rest\model\ScoredRecord.class
+com\rest\model\User.class
+com\rest\model\Student.class
+com\rest\Application.class
+com\rest\controller\UserController.class
+com\rest\persistance\UserDAO.class
+com\rest\model\GradeParalelo.class
+com\rest\model\Grade.class
+com\rest\model\StaffType.class
