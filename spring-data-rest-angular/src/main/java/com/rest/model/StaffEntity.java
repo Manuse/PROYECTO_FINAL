@@ -30,12 +30,12 @@ public class StaffEntity {
 	@Column( name = "lastNameParent1" )
 	@Length( min = 0 , max = 50 )
 	@NotEmpty
-	private String lastNameFather;
+	private String lastNameParent1;
 	
 	//this one can be empty because of monoparental families
 	@Column( name = "lastNameParent2" )
 	@Length( min = 0 , max = 50 )
-	private String lastNameMother;
+	private String lastNameParent2;
 
 	@Column( name = "dateOfBirth" )
 	@Temporal( TemporalType.DATE )
@@ -118,20 +118,20 @@ public class StaffEntity {
 		this.staffId = staffId;
 	}
 
-	public String getLastNameFather() {
-		return lastNameFather;
+	public String getLastNameParent1() {
+		return lastNameParent1;
 	}
 
-	public void setLastNameFather(String lastNameFather) {
-		this.lastNameFather = lastNameFather;
+	public void setLastNameParent1(String lastNameParent1) {
+		this.lastNameParent1 = lastNameParent1;
 	}
 
-	public String getLastNameMother() {
-		return lastNameMother;
+	public String getLastNameParent2() {
+		return lastNameParent2;
 	}
 
-	public void setLastNameMother(String lastNameMother) {
-		this.lastNameMother = lastNameMother;
+	public void setLastNameParent2(String lastNameParent2) {
+		this.lastNameParent2 = lastNameParent2;
 	}
 
 	public Date getDateOfBirth() {

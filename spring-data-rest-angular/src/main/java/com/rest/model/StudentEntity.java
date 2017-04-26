@@ -31,15 +31,15 @@ public class StudentEntity {
 	@NotEmpty
 	private String studentName;
 
-	@Column(name = "lastNameFather")
+	@Column(name = "lastNameParent1")
 	@Length(min = 3, max = 50)
 	@NotEmpty
-	private String lastNameFather;
+	private String lastNameParent1;
 
-	@Column(name = "lastNameMother")
+	@Column(name = "lastNameParent2")
 	@Length(min = 3, max = 50)
 	@NotEmpty
-	private String lastNameMother;
+	private String lastNameParent2;
 
 	@Column(name = "dateOfBirth")
 	@Temporal(TemporalType.DATE)
@@ -71,35 +71,35 @@ public class StudentEntity {
 	@NotEmpty
 	private String address;
 
-	@Column(name = "fatherName")
+	@Column(name = "parent1Name")
 	@Length(min = 3, max = 50)
 	@NotEmpty
-	private String fatherName;
+	private String parent1Name;
 
-	@Column(name = "motherName")
+	@Column(name = "parent2Name")
 	@Length(min = 3, max = 50)
 	@NotEmpty
-	private String motherName;
+	private String parent2Name;
 
-	@Column(name = "fatherMobilePhone")
+	@Column(name = "parent1MobilePhone")
 	@Digits(integer = 9, fraction = 0)
 	@NotEmpty
-	private int fatherMobilePhone;
+	private int parent1MobilePhone;
 
-	@Column(name = "motherMobilePhone")
+	@Column(name = "parent2MobilePhone")
 	@Digits(integer = 9, fraction = 0)
 	@NotEmpty
-	private int motherMobilePhone;
+	private int parent2MobilePhone;
 
-	@Column(name = "fatherProfession")
+	@Column(name = "parent1Profession")
 	@Length(min = 1, max = 250)
 	@NotEmpty
-	private String fatherProfession;
+	private String parent1Profession;
 
-	@Column(name = "motherProfession")
+	@Column(name = "parent2Profession")
 	@Length(min = 1, max = 250)
 	@NotEmpty
-	private String motherProfession;
+	private String parent2Profession;
 
 	@Column(name = "observation")
 	@Length(min = 1, max = 250)
@@ -134,20 +134,20 @@ public class StudentEntity {
 		this.studentName = studentName;
 	}
 
-	public String getLastNameFather() {
-		return lastNameFather;
+	public String getlastNameParent1() {
+		return lastNameParent1;
 	}
 
-	public void setLastNameFather(String lastNameFather) {
-		this.lastNameFather = lastNameFather;
+	public void setlastNameParent1(String lastNameParent1) {
+		this.lastNameParent1 = lastNameParent1;
 	}
 
-	public String getLastNameMother() {
-		return lastNameMother;
+	public String getlastNameParent2() {
+		return lastNameParent2;
 	}
 
-	public void setLastNameMother(String lastNameMother) {
-		this.lastNameMother = lastNameMother;
+	public void setlastNameParent2(String lastNameParent2) {
+		this.lastNameParent2 = lastNameParent2;
 	}
 
 	public Date getDateOfBirth() {
@@ -190,52 +190,52 @@ public class StudentEntity {
 		this.address = address;
 	}
 
-	public String getFatherName() {
-		return fatherName;
+	public String getParent1Name() {
+		return parent1Name;
 	}
 
-	public void setFatherName(String fatherName) {
-		this.fatherName = fatherName;
+	public void setParent1Name(String parent1Name) {
+		this.parent1Name = parent1Name;
 	}
 
-	public String getMotherName() {
-		return motherName;
+	public String getParent2Name() {
+		return parent2Name;
 	}
 
-	public void setMotherName(String motherName) {
-		this.motherName = motherName;
+	public void setParent2Name(String parent2Name) {
+		this.parent2Name = parent2Name;
 	}
 
-	public int getFatherMobilePhone() {
-		return fatherMobilePhone;
+	public int getParent1MobilePhone() {
+		return parent1MobilePhone;
 	}
 
-	public void setFatherMobilePhone(int fatherMobilePhone) {
-		this.fatherMobilePhone = fatherMobilePhone;
+	public void setParent1MobilePhone(int parent1MobilePhone) {
+		this.parent1MobilePhone = parent1MobilePhone;
 	}
 
-	public int getMotherMobilePhone() {
-		return motherMobilePhone;
+	public int getParent2MobilePhone() {
+		return parent1MobilePhone;
 	}
 
-	public void setMotherMobilePhone(int motherMobilePhone) {
-		this.motherMobilePhone = motherMobilePhone;
+	public void setParent2MobilePhone(int parent2MobilePhone) {
+		this.parent2MobilePhone = parent2MobilePhone;
 	}
 
-	public String getFatherProfession() {
-		return fatherProfession;
+	public String getParent1Profession() {
+		return parent1Profession;
 	}
 
-	public void setFatherProfession(String fatherProfession) {
-		this.fatherProfession = fatherProfession;
+	public void setParent1Profession(String parent1Profession) {
+		this.parent1Profession = parent1Profession;
 	}
 
-	public String getMotherProfession() {
-		return motherProfession;
+	public String getparent2Profession() {
+		return parent2Profession;
 	}
 
-	public void setMotherProfession(String motherProfession) {
-		this.motherProfession = motherProfession;
+	public void setParent2Profession(String parent2Profession) {
+		this.parent2Profession = parent2Profession;
 	}
 
 	public String getObservation() {
