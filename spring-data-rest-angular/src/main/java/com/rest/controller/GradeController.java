@@ -11,12 +11,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.rest.model.GradeEntity;
 import com.rest.services.GradeService;
 
 @Controller
-public class GradeController {
+public class GradeController extends AbstractResourceController{
 	
 	@Autowired
 	private GradeService gradeService;
@@ -32,7 +33,8 @@ public class GradeController {
 	}
 	
 	@RequestMapping(value = "/grade", method = RequestMethod.POST)
-	public void postGrade(@Valid @RequestBody GradeEntity entity){
+	@ResponseBody
+	public void postGrade(@RequestBody GradeEntity entity){
 		gradeService.saveGrade(entity);
 	}
 	
