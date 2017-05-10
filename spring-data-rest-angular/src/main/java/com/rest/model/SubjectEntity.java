@@ -6,11 +6,14 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -22,7 +25,8 @@ public class SubjectEntity {
 	@Id
 	@Column( name = "subjectId" )
 	@Digits( integer = 3 , fraction = 0 )
-	@NotEmpty
+	@NotNull
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int subjectId;
 	
 	@Column( name = "subjectName" )

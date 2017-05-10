@@ -14,4 +14,6 @@ public interface StudentService {
 	
 	List<StudentEntity> listStudent();
 	
+	StudentEntity login(String email, String pass);
+	
 }

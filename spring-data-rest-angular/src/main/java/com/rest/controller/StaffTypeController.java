@@ -2,8 +2,6 @@ package com.rest.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.rest.model.StaffTypeEntity;
 import com.rest.services.StaffTypeService;
@@ -21,23 +20,27 @@ public class StaffTypeController {
 	@Autowired
 	private StaffTypeService staffTypeService;
 
-	@GetMapping(value = "/staffType/{id}")
+	@GetMapping(value = "/staffType")
+	@ResponseBody
 	public StaffTypeEntity getStaffTypeById(@RequestParam("id") int id) {
 		return staffTypeService.getStaffTypeById(id);
 	}
 	
 	@GetMapping("/staffType/list")
+	@ResponseBody
 	public List<StaffTypeEntity> getAllStaffType(){
 		return staffTypeService.listStaffType();
 	}
 	
 	@RequestMapping(value = "/staffType", method = RequestMethod.POST)
-	public void postStaffType(@Valid @RequestBody StaffTypeEntity entity){
+	@ResponseBody
+	public void postStaffType(@RequestBody StaffTypeEntity entity){
 		staffTypeService.saveStaffType(entity);
 	}
 	
 	@RequestMapping(value = "/staffType", method = RequestMethod.PUT)
-	public void putStaffType(@Valid @RequestBody StaffTypeEntity entity) {
+	@ResponseBody
+	public void putStaffType(@RequestBody StaffTypeEntity entity) {
 		
 		StaffTypeEntity dto = staffTypeService.getStaffTypeById((entity.getStaffTypeId()));
 		dto.setName(entity.getName());
@@ -46,7 +49,8 @@ public class StaffTypeController {
 	}
 	
 	@RequestMapping(value = "/staffType", method = RequestMethod.DELETE)
-	public void deleteStaffType(@Valid @RequestBody StaffTypeEntity entity){
+	@ResponseBody
+	public void deleteStaffType(@RequestBody StaffTypeEntity entity){
 		staffTypeService.deleteStaffType(entity);
 	}
 }

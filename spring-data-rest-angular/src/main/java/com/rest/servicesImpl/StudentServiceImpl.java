@@ -39,8 +39,14 @@ public class StudentServiceImpl implements StudentService {
 	}
 
 	@Override
+	@org.springframework.transaction.annotation.Transactional(readOnly = true)
 	public List<StudentEntity> listStudent() {
 		return repository.findAll();
 	}
-	
+
+	@Override
+	@org.springframework.transaction.annotation.Transactional(readOnly = true)
+	public StudentEntity login(String email, String pass) {
+		return repository.login(email, pass);
+	}
 }

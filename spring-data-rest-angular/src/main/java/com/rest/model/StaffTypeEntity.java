@@ -5,9 +5,13 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -21,6 +25,8 @@ public class StaffTypeEntity {
 	@Column( name = "name" )
 	@Length( min = 1, max = 25 )
 	@NotEmpty
+	@NotNull
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String name;
     
 	@OneToMany(mappedBy = "staffTypeId", cascade = CascadeType.ALL)

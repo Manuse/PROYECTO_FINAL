@@ -2,8 +2,6 @@ package com.rest.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,12 +20,14 @@ public class GradeController extends AbstractResourceController{
 	@Autowired
 	private GradeService gradeService;
 
-	@GetMapping(value = "/grade/{id}")
+	@GetMapping(value = "/grade")
+	@ResponseBody
 	public GradeEntity getGradeById(@RequestParam("id") int id) {
 		return gradeService.getGradeById(id);
 	}
 	
 	@GetMapping("/grade/list")
+	@ResponseBody
 	public List<GradeEntity> getAllGrade(){
 		return gradeService.listGrade();
 	}
@@ -39,7 +39,8 @@ public class GradeController extends AbstractResourceController{
 	}
 	
 	@RequestMapping(value = "/grade", method = RequestMethod.PUT)
-	public void putGrade(@Valid @RequestBody GradeEntity entity) {
+	@ResponseBody
+	public void putGrade(@RequestBody GradeEntity entity) {
 		
 		GradeEntity dto = gradeService.getGradeById(entity.getGradeId());
 		dto.setName(entity.getName());
@@ -48,7 +49,8 @@ public class GradeController extends AbstractResourceController{
 	}
 	
 	@RequestMapping(value = "/grade", method = RequestMethod.DELETE)
-	public void deleteGrade(@Valid @RequestBody GradeEntity entity){
+	@ResponseBody
+	public void deleteGrade(@RequestBody GradeEntity entity){
 		gradeService.deleteGrade(entity);
 	}
 }

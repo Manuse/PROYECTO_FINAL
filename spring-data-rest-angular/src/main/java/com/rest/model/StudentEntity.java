@@ -6,12 +6,15 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -24,8 +27,20 @@ public class StudentEntity {
 	@Id
 	@Digits(integer = 3, fraction = 0)
 	@NotEmpty
+	@NotNull
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int studentId;
 
+	@Column(name = "email")
+	@Length(min = 3, max = 50)
+	@NotEmpty
+	private String email;
+	
+	@Column(name = "pass")
+	@Length(min = 3, max = 50)
+	@NotEmpty
+	private String pass;
+	
 	@Column(name = "studentName")
 	@Length(min = 3, max = 50)
 	@NotEmpty
@@ -108,15 +123,6 @@ public class StudentEntity {
 	
 	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
 	private List<ScoredRecordEntity> scoredRecord;
-	
-
-	public List<ScoredRecordEntity> getScoredRecord() {
-		return scoredRecord;
-	}
-
-	public void setScoredRecord(List<ScoredRecordEntity> scoredRecord) {
-		this.scoredRecord = scoredRecord;
-	}
 
 	public int getStudentId() {
 		return studentId;
@@ -124,6 +130,22 @@ public class StudentEntity {
 
 	public void setStudentId(int studentId) {
 		this.studentId = studentId;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPass() {
+		return pass;
+	}
+
+	public void setPass(String pass) {
+		this.pass = pass;
 	}
 
 	public String getStudentName() {
@@ -134,19 +156,19 @@ public class StudentEntity {
 		this.studentName = studentName;
 	}
 
-	public String getlastNameParent1() {
+	public String getLastNameParent1() {
 		return lastNameParent1;
 	}
 
-	public void setlastNameParent1(String lastNameParent1) {
+	public void setLastNameParent1(String lastNameParent1) {
 		this.lastNameParent1 = lastNameParent1;
 	}
 
-	public String getlastNameParent2() {
+	public String getLastNameParent2() {
 		return lastNameParent2;
 	}
 
-	public void setlastNameParent2(String lastNameParent2) {
+	public void setLastNameParent2(String lastNameParent2) {
 		this.lastNameParent2 = lastNameParent2;
 	}
 
@@ -156,6 +178,14 @@ public class StudentEntity {
 
 	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
+	}
+
+	public String getPlaceOfBirth() {
+		return placeOfBirth;
+	}
+
+	public void setPlaceOfBirth(String placeOfBirth) {
+		this.placeOfBirth = placeOfBirth;
 	}
 
 	public String getSex() {
@@ -215,7 +245,7 @@ public class StudentEntity {
 	}
 
 	public int getParent2MobilePhone() {
-		return parent1MobilePhone;
+		return parent2MobilePhone;
 	}
 
 	public void setParent2MobilePhone(int parent2MobilePhone) {
@@ -230,7 +260,7 @@ public class StudentEntity {
 		this.parent1Profession = parent1Profession;
 	}
 
-	public String getparent2Profession() {
+	public String getParent2Profession() {
 		return parent2Profession;
 	}
 
@@ -246,12 +276,14 @@ public class StudentEntity {
 		this.observation = observation;
 	}
 
-	public String getPlaceOfBirth() {
-		return placeOfBirth;
+	public List<ScoredRecordEntity> getScoredRecord() {
+		return scoredRecord;
 	}
 
-	public void setPlaceOfBirth(String placeOfBirth) {
-		this.placeOfBirth = placeOfBirth;
+	public void setScoredRecord(List<ScoredRecordEntity> scoredRecord) {
+		this.scoredRecord = scoredRecord;
 	}
+	
 
+	
 }

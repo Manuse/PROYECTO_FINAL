@@ -2,11 +2,14 @@ package com.rest.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -17,7 +20,8 @@ public class ScoredRecordEntity {
 	@Id
 	@Column(name = "scoredRecordId")
 	@Digits(integer = 3, fraction = 0)
-	@NotEmpty
+	@NotNull
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int scoredRecordId;
 
 	@ManyToOne
@@ -30,22 +34,18 @@ public class ScoredRecordEntity {
 
 	@Column(name = "firstTrimester")
 	@Digits(integer = 2, fraction = 0)
-	@NotEmpty
 	private int firstTrimester;
 
 	@Column(name = "secondTrimester")
 	@Digits(integer = 2, fraction = 0)
-	@NotEmpty
 	private int secondTrimester;
 
 	@Column(name = "thirdTrimester")
 	@Digits(integer = 2, fraction = 0)
-	@NotEmpty
 	private int thirdTrimester;
 
 	@Column(name = "year")
 	@Digits(integer = 2, fraction = 0)
-	@NotEmpty
 	private int year;
 
 	public int getScoredRecordId() {
@@ -103,4 +103,5 @@ public class ScoredRecordEntity {
 	public void setYear(int year) {
 		this.year = year;
 	}
+	
 }
