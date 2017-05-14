@@ -99,7 +99,7 @@ public class StudentController extends AbstractResourceController{
 		dto.setObservation(entity.getObservation());
 		
 		//TODO set of the list of ScoredRecords
-		studentService.saveStudent(dto);
+		studentService.saveStudent(entity);
 	}
 	
 	@RequestMapping(value = "/student", method = RequestMethod.DELETE)
