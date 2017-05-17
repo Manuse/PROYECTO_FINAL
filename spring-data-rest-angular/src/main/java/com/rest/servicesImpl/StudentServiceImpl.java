@@ -7,6 +7,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.rest.model.StudentEntity;
+import com.rest.persistance.ScoredRecordRepository;
 import com.rest.persistance.StudentRepository;
 import com.rest.services.StudentService;
 
@@ -19,6 +20,7 @@ public class StudentServiceImpl implements StudentService {
 	@Override
 	@org.springframework.transaction.annotation.Transactional(readOnly = true)
 	public StudentEntity getStudentById(int id) {
+		
 		return repository.findByStudentId(id);
 	}
 

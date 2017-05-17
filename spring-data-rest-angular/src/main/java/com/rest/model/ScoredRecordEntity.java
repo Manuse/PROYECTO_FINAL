@@ -2,6 +2,7 @@ package com.rest.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,6 +13,8 @@ import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "ScoredRecord")
@@ -29,6 +32,7 @@ public class ScoredRecordEntity {
 	private SubjectEntity subject;
 
 	@ManyToOne
+	@JsonIgnore
 	@JoinColumn(name = "student")
 	private StudentEntity student;
 

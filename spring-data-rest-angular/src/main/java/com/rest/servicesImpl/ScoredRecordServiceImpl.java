@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import com.rest.model.ScoredRecordEntity;
@@ -18,6 +19,8 @@ public class ScoredRecordServiceImpl implements ScoredRecordService{
 
 	@Override
 	@org.springframework.transaction.annotation.Transactional(readOnly = true)
+	
+	
 	public ScoredRecordEntity getScoredRecordById(int id) {
 		return repository.findByScoredRecordId(id);
 	}
@@ -39,6 +42,7 @@ public class ScoredRecordServiceImpl implements ScoredRecordService{
 	}
 
 	@Override
+	
 	public List<ScoredRecordEntity> listScoredRecord() {
 		return repository.findAll();
 	}

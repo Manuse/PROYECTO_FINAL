@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,9 +32,10 @@ public class StudentController extends AbstractResourceController{
 	private ScoredRecordService scoredRecordService;
 	
 	//student login
+
 	@GetMapping(value = "/student/login")
 	@ResponseBody
-	public StudentEntity studentLogin(@RequestParam("email") String email, @RequestParam("pass") String pass) {
+	public StudentEntity studentLogin(@RequestParam("email") String email, @RequestParam("pass") String pass){
 		return studentService.login(email, pass);
 	}
 	//student subject enroll
@@ -57,13 +59,13 @@ public class StudentController extends AbstractResourceController{
 		student.setScoredRecord(lista);
 		studentService.saveStudent(student);
 	}
-	
+
 	@GetMapping(value = "/student")
 	@ResponseBody
 	public StudentEntity getStudentById(@RequestParam("id") int id) {
 		return studentService.getStudentById(id);
 	}
-	
+
 	@GetMapping("/student/list")
 	@ResponseBody
 	public List<StudentEntity> getAllStudent(){

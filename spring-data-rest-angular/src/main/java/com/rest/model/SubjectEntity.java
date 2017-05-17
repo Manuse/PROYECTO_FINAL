@@ -18,6 +18,8 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity 
 @Table( name = "Subjects" )
 public class SubjectEntity {
@@ -38,9 +40,10 @@ public class SubjectEntity {
 	@Length( min = 1 , max = 3 )
 	private String abbreviation;
 	
-	@ManyToMany(fetch = FetchType.EAGER, mappedBy = "subjects")
+	@ManyToMany(mappedBy = "subjects", cascade = CascadeType.ALL)
 	private List<GradeEntity> grade;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "subject", cascade = CascadeType.ALL)
 	private List<ScoredRecordEntity> scoredRecord;
 	
