@@ -25,11 +25,21 @@ public class StudentServiceImpl implements StudentService {
 	}
 
 	@Override
-	@org.springframework.transaction.annotation.Transactional
-	public void saveStudent(StudentEntity entity) {
+
+	public boolean saveStudent(StudentEntity entity) {
+		
+		boolean respuesta = false;
 		try {
-			repository.save(entity);
+			StudentEntity check = repository.findByEmail(entity.getEmail());
+			if (check == null){
+				repository.save(entity);
+				respuesta = true;
+			}else{
+				respuesta = false;
+			}
 		} catch (DataAccessException e) {}
+		
+		return respuesta;
 	}
 
 	@Override

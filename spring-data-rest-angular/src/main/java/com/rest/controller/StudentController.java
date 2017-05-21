@@ -75,6 +75,11 @@ public class StudentController extends AbstractResourceController{
 	@RequestMapping(value = "/student", method = RequestMethod.POST)
 	@ResponseBody
 	public void postStudent(@RequestBody StudentEntity entity){
+		System.out.println("#################################");
+		System.out.println(entity.getStudentId());
+		System.out.println(entity.getAddress());
+		System.out.println(entity.getEmail());
+		System.out.println("#################################");
 		studentService.saveStudent(entity);
 	}
 	

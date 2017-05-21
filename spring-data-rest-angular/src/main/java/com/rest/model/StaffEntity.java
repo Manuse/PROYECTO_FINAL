@@ -32,6 +32,14 @@ public class StaffEntity {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int staffId;
 	
+	@Column(name = "email")
+	@NotEmpty
+	private String email;
+	
+	@Column(name = "pass")
+	@NotEmpty
+	private String pass;
+	
 	@Column( name = "lastNameParent1" )
 	@Length( min = 0 , max = 50 )
 	@NotEmpty
@@ -78,7 +86,6 @@ public class StaffEntity {
 	@NotEmpty
 	private Date dateOfHiring;
 
-	
 	@Column( name = "formation" )
 	@Length( min = 0 , max = 500 )
 	@NotEmpty
@@ -234,5 +241,15 @@ public class StaffEntity {
 	public void setStaffTypeId(StaffTypeEntity staffTypeId) {
 		this.staffTypeId = staffTypeId;
 	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	
 
 }

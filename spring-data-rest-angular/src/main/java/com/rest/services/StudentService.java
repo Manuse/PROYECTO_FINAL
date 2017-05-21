@@ -8,7 +8,7 @@ public interface StudentService {
 
 	StudentEntity getStudentById(int id);
 	
-	void saveStudent(StudentEntity entity);
+	boolean saveStudent(StudentEntity entity);
 	
 	void deleteStudent(StudentEntity entity);
 	

@@ -40,6 +40,7 @@ public class SubjectEntity {
 	@Length( min = 1 , max = 3 )
 	private String abbreviation;
 	
+	@JsonIgnore
 	@ManyToMany(mappedBy = "subjects", cascade = CascadeType.ALL)
 	private List<GradeEntity> grade;
 	

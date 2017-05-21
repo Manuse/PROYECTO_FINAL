@@ -11,6 +11,8 @@ public interface StudentRepository extends JpaRepository<StudentEntity, Integer>
 	
 	StudentEntity findByStudentId(int id);
 	
+	StudentEntity findByEmail(String email);
+	
 	@Query("select a from StudentEntity a where email = ? and pass = ?")
 	StudentEntity login(String email, String pass);
 }

@@ -7,6 +7,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.rest.model.StaffEntity;
+import com.rest.model.StudentEntity;
 import com.rest.persistance.StaffRepository;
 import com.rest.services.StaffService;
 
@@ -24,10 +25,19 @@ public class StaffServiceImpl implements StaffService{
 
 	@Override
 	@org.springframework.transaction.annotation.Transactional
-	public void saveStaff(StaffEntity entity) {
+	public boolean saveStaff(StaffEntity entity) {
+		boolean respuesta = false;
 		try {
-			repository.save(entity);
+			StaffEntity check = repository.findByEmail(entity.getEmail());
+			if (check == null){
+				repository.save(entity);
+				respuesta = true;
+			}else{
+				respuesta = false;
+			}
 		} catch (DataAccessException e) {}
+		
+		return respuesta;
 	}
 
 	@Override

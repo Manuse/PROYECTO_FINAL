@@ -26,34 +26,31 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class StudentEntity {
 
 	@Id
-	@Digits(integer = 3, fraction = 0)
-	@NotEmpty
-	@NotNull
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int studentId;
 
 	@Column(name = "email")
-	@Length(min = 3, max = 50)
+	//@Length(min = 3, max = 50)
 	@NotEmpty
 	private String email;
 	
 	@Column(name = "pass")
-	@Length(min = 3, max = 50)
+	//@Length(min = 3, max = 50)
 	@NotEmpty
 	private String pass;
 	
 	@Column(name = "studentName")
-	@Length(min = 3, max = 50)
+	//@Length(min = 3, max = 50)
 	@NotEmpty
 	private String studentName;
 
 	@Column(name = "lastNameParent1")
-	@Length(min = 3, max = 50)
+	//@Length(min = 3, max = 50)
 	@NotEmpty
 	private String lastNameParent1;
 
 	@Column(name = "lastNameParent2")
-	@Length(min = 3, max = 50)
+	//@Length(min = 3, max = 50)
 	@NotEmpty
 	private String lastNameParent2;
 
@@ -64,7 +61,7 @@ public class StudentEntity {
 	private Date dateOfBirth;
 
 	@Column(name = "placeOfBirth")
-	@Length(min = 0, max = 50)
+	//@Length(min = 0, max = 50)
 	@NotEmpty
 	private String placeOfBirth;
 
@@ -73,52 +70,52 @@ public class StudentEntity {
 	private String sex;
 
 	@Column(name = "telephone")
-	@Digits(integer = 9, fraction = 0)
+	//@Digits(integer = 9, fraction = 0)
 	@NotEmpty
 	private int telephone;
 
 	@Column(name = "mobilePhone")
-	@Digits(integer = 9, fraction = 0)
+	//@Digits(integer = 9, fraction = 0)
 	@NotEmpty
 	private int mobilePhone;
 
 	@Column(name = "address")
-	@Length(min = 1, max = 250)
+	//@Length(min = 1, max = 250)
 	@NotEmpty
 	private String address;
 
 	@Column(name = "parent1Name")
-	@Length(min = 3, max = 50)
+	//@Length(min = 3, max = 50)
 	@NotEmpty
 	private String parent1Name;
 
 	@Column(name = "parent2Name")
-	@Length(min = 3, max = 50)
+	//@Length(min = 3, max = 50)
 	@NotEmpty
 	private String parent2Name;
 
 	@Column(name = "parent1MobilePhone")
-	@Digits(integer = 9, fraction = 0)
+	//@Digits(integer = 9, fraction = 0)
 	@NotEmpty
 	private int parent1MobilePhone;
 
 	@Column(name = "parent2MobilePhone")
-	@Digits(integer = 9, fraction = 0)
+	//@Digits(integer = 9, fraction = 0)
 	@NotEmpty
 	private int parent2MobilePhone;
 
 	@Column(name = "parent1Profession")
-	@Length(min = 1, max = 250)
+	//@Length(min = 1, max = 250)
 	@NotEmpty
 	private String parent1Profession;
 
 	@Column(name = "parent2Profession")
-	@Length(min = 1, max = 250)
+	//@Length(min = 1, max = 250)
 	@NotEmpty
 	private String parent2Profession;
 
 	@Column(name = "observation")
-	@Length(min = 1, max = 250)
+	//@Length(min = 1, max = 250)
 	@NotEmpty
 	private String observation;
 	
