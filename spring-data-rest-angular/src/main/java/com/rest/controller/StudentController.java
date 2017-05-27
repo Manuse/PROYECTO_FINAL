@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.rest.model.ScoredRecordEntity;
 import com.rest.model.StudentEntity;
-import com.rest.model.SubjectEntity;
 import com.rest.services.ScoredRecordService;
 import com.rest.services.StudentService;
 import com.rest.services.SubjectService;
@@ -75,11 +73,6 @@ public class StudentController extends AbstractResourceController{
 	@RequestMapping(value = "/student", method = RequestMethod.POST)
 	@ResponseBody
 	public void postStudent(@RequestBody StudentEntity entity){
-		System.out.println("#################################");
-		System.out.println(entity.getStudentId());
-		System.out.println(entity.getAddress());
-		System.out.println(entity.getEmail());
-		System.out.println("#################################");
 		studentService.saveStudent(entity);
 	}
 	
@@ -87,7 +80,7 @@ public class StudentController extends AbstractResourceController{
 	@ResponseBody
 	public void putStudent(@RequestBody StudentEntity entity) {
 		
-		StudentEntity dto = studentService.getStudentById((entity.getStudentId()));
+		/*StudentEntity dto = studentService.getStudentById((entity.getStudentId()));
 		dto.setStudentName(entity.getStudentName());
 		dto.setLastNameParent1(entity.getLastNameParent1());
 		dto.setLastNameParent2(entity.getLastNameParent2());
@@ -103,7 +96,7 @@ public class StudentController extends AbstractResourceController{
 		dto.setParent2MobilePhone(entity.getParent2MobilePhone());
 		dto.setParent1Profession(entity.getParent1Profession());
 		dto.setParent2Profession(entity.getParent2Profession());
-		dto.setObservation(entity.getObservation());
+		dto.setObservation(entity.getObservation());*/
 		
 		//TODO set of the list of ScoredRecords
 		studentService.saveStudent(entity);

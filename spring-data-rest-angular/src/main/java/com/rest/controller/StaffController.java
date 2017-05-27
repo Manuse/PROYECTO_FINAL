@@ -44,7 +44,7 @@ public class StaffController {
 	public void putStaffType(@RequestBody StaffEntity entity) {
 		
 		StaffEntity dto = staffService.getStaffById((entity.getStaffId()));
-		dto.setLastNameParent1(entity.getLastNameParent1());
+		/*dto.setLastNameParent1(entity.getLastNameParent1());
 		dto.setLastNameParent2(entity.getLastNameParent2());
 		dto.setDateOfBirth(entity.getDateOfBirth());
 		dto.setPlaceOfBirth(entity.getPlaceOfBirth());
@@ -57,7 +57,7 @@ public class StaffController {
 		dto.setSpecialty(entity.getSpecialty());
 		dto.setCategory(entity.getCategory());
 		dto.setSalary(entity.getSalary());
-		dto.setStaffTypeId(entity.getStaffTypeId());
+		dto.setStaffTypeId(entity.getStaffTypeId());*/
 		//TODO set of the list of gradeParalelo
 		staffService.saveStaff(dto);
 	}

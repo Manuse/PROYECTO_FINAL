@@ -27,10 +27,18 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class StaffEntity {
 	
 	@Id
-	@Column(name = "staff")
+	@Column(name = "staffId")
 	@NotNull
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int staffId;
+	
+	@Column(name = "name")
+	@NotEmpty
+	private String name;
+	
+	@Column(name = "lastName")
+	@NotEmpty
+	private String lastName;
 	
 	@Column(name = "email")
 	@NotEmpty
@@ -39,16 +47,6 @@ public class StaffEntity {
 	@Column(name = "pass")
 	@NotEmpty
 	private String pass;
-	
-	@Column( name = "lastNameParent1" )
-	@Length( min = 0 , max = 50 )
-	@NotEmpty
-	private String lastNameParent1;
-	
-	//this one can be empty because of monoparental families
-	@Column( name = "lastNameParent2" )
-	@Length( min = 0 , max = 50 )
-	private String lastNameParent2;
 
 	@Column( name = "dateOfBirth" )
 	@Temporal( TemporalType.DATE )
@@ -65,46 +63,20 @@ public class StaffEntity {
 	@NotEmpty
 	private String sex;
 
-	@Column( name = "telephone" )
-	@Digits( integer = 9 , fraction = 0 )
-	@NotEmpty
-	private int telephone;
-
 	@Column( name = "mobilePhone" )
 	@Digits( integer = 9 , fraction = 0 )
 	@NotEmpty
 	private int mobilePhone;
 
-	@Column( name = "address" )
+	@Column( name = "city" )
 	@Length( min = 1 , max = 250)
 	@NotEmpty
-	private String address;
-
-	@Column( name = "dateOfHiring" )
-	@Temporal( TemporalType.DATE )
-	@DateTimeFormat( pattern = "yyyy/MM/dd" )
-	@NotEmpty
-	private Date dateOfHiring;
-
-	@Column( name = "formation" )
-	@Length( min = 0 , max = 500 )
-	@NotEmpty
-	private String formation;
+	private String city;
 	
-	@Column( name = "specialty" )
-	@Length( min = 0 , max = 500 )
+	@Column( name = "province" )
+	@Length( min = 1 , max = 250)
 	@NotEmpty
-	private String specialty;
-	
-	@Column( name = "category" )
-	@Length( min = 0 , max = 500 )
-	@NotEmpty
-	private String category;
-	
-	@Column( name = "salary" )
-	@Digits( integer = 5 , fraction = 2 )
-	@NotEmpty
-	private double salary;
+	private String province;
 	
 	@ManyToOne
 	@JoinColumn(name = "staffTypeId")
@@ -112,15 +84,6 @@ public class StaffEntity {
 	
 	@OneToMany(mappedBy = "staff", cascade = CascadeType.ALL)
 	private List<GradeParaleloEntity> gradeParalelo;
-
-	
-	public List<GradeParaleloEntity> getGradeParalelo() {
-		return gradeParalelo;
-	}
-
-	public void setGradeParalelo(List<GradeParaleloEntity> gradeParalelo) {
-		this.gradeParalelo = gradeParalelo;
-	}
 
 	public int getStaffId() {
 		return staffId;
@@ -130,20 +93,36 @@ public class StaffEntity {
 		this.staffId = staffId;
 	}
 
-	public String getLastNameParent1() {
-		return lastNameParent1;
+	public String getName() {
+		return name;
 	}
 
-	public void setLastNameParent1(String lastNameParent1) {
-		this.lastNameParent1 = lastNameParent1;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getLastNameParent2() {
-		return lastNameParent2;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setLastNameParent2(String lastNameParent2) {
-		this.lastNameParent2 = lastNameParent2;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPass() {
+		return pass;
+	}
+
+	public void setPass(String pass) {
+		this.pass = pass;
 	}
 
 	public Date getDateOfBirth() {
@@ -170,14 +149,6 @@ public class StaffEntity {
 		this.sex = sex;
 	}
 
-	public int getTelephone() {
-		return telephone;
-	}
-
-	public void setTelephone(int telephone) {
-		this.telephone = telephone;
-	}
-
 	public int getMobilePhone() {
 		return mobilePhone;
 	}
@@ -186,70 +157,39 @@ public class StaffEntity {
 		this.mobilePhone = mobilePhone;
 	}
 
-	public String getAddress() {
-		return address;
+	public String getCity() {
+		return city;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setCity(String city) {
+		this.city = city;
 	}
 
-	public Date getDateOfHiring() {
-		return dateOfHiring;
+	public String getProvince() {
+		return province;
 	}
 
-	public void setDateOfHiring(Date dateOfHiring) {
-		this.dateOfHiring = dateOfHiring;
-	}
-
-	public String getFormation() {
-		return formation;
-	}
-
-	public void setFormation(String formation) {
-		this.formation = formation;
-	}
-
-	public String getSpecialty() {
-		return specialty;
-	}
-
-	public void setSpecialty(String specialty) {
-		this.specialty = specialty;
-	}
-
-	public String getCategory() {
-		return category;
-	}
-
-	public void setCategory(String category) {
-		this.category = category;
-	}
-
-	public double getSalary() {
-		return salary;
-	}
-
-	public void setSalary(double salary) {
-		this.salary = salary;
+	public void setProvince(String province) {
+		this.province = province;
 	}
 
 	public StaffTypeEntity getStaffTypeId() {
 		return staffTypeId;
 	}
-	
+
 	public void setStaffTypeId(StaffTypeEntity staffTypeId) {
 		this.staffTypeId = staffTypeId;
 	}
 
-	public String getEmail() {
-		return email;
+	public List<GradeParaleloEntity> getGradeParalelo() {
+		return gradeParalelo;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setGradeParalelo(List<GradeParaleloEntity> gradeParalelo) {
+		this.gradeParalelo = gradeParalelo;
 	}
+
 	
-	
+
 
 }

@@ -7,7 +7,6 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.rest.model.StudentEntity;
-import com.rest.persistance.ScoredRecordRepository;
 import com.rest.persistance.StudentRepository;
 import com.rest.services.StudentService;
 

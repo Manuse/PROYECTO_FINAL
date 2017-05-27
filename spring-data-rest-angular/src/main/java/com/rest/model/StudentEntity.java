@@ -6,7 +6,6 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,10 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.Digits;
-import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -39,20 +35,25 @@ public class StudentEntity {
 	@NotEmpty
 	private String pass;
 	
-	@Column(name = "studentName")
+	@Column(name = "name")
 	//@Length(min = 3, max = 50)
 	@NotEmpty
-	private String studentName;
+	private String name;
+	
+	@Column(name = "lastName")
+	//@Length(min = 3, max = 50)
+	@NotEmpty
+	private String lastName;
 
-	@Column(name = "lastNameParent1")
+	@Column(name = "guardianName")
 	//@Length(min = 3, max = 50)
 	@NotEmpty
-	private String lastNameParent1;
+	private String guardianName;
 
-	@Column(name = "lastNameParent2")
+	@Column(name = "guardianLastName")
 	//@Length(min = 3, max = 50)
 	@NotEmpty
-	private String lastNameParent2;
+	private String guardianLastName;
 
 	@Column(name = "dateOfBirth")
 	@Temporal(TemporalType.DATE)
@@ -69,50 +70,25 @@ public class StudentEntity {
 	@NotEmpty
 	private String sex;
 
-	@Column(name = "telephone")
-	//@Digits(integer = 9, fraction = 0)
-	@NotEmpty
-	private int telephone;
-
 	@Column(name = "mobilePhone")
 	//@Digits(integer = 9, fraction = 0)
 	@NotEmpty
 	private int mobilePhone;
 
-	@Column(name = "address")
+	@Column(name = "city")
 	//@Length(min = 1, max = 250)
 	@NotEmpty
-	private String address;
-
-	@Column(name = "parent1Name")
-	//@Length(min = 3, max = 50)
+	private String city;
+	
+	@Column(name = "province")
+	//@Length(min = 1, max = 250)
 	@NotEmpty
-	private String parent1Name;
+	private String province;
 
-	@Column(name = "parent2Name")
-	//@Length(min = 3, max = 50)
-	@NotEmpty
-	private String parent2Name;
-
-	@Column(name = "parent1MobilePhone")
+	@Column(name = "guardianMobilePhone")
 	//@Digits(integer = 9, fraction = 0)
 	@NotEmpty
-	private int parent1MobilePhone;
-
-	@Column(name = "parent2MobilePhone")
-	//@Digits(integer = 9, fraction = 0)
-	@NotEmpty
-	private int parent2MobilePhone;
-
-	@Column(name = "parent1Profession")
-	//@Length(min = 1, max = 250)
-	@NotEmpty
-	private String parent1Profession;
-
-	@Column(name = "parent2Profession")
-	//@Length(min = 1, max = 250)
-	@NotEmpty
-	private String parent2Profession;
+	private int guardianMobilePhone;
 
 	@Column(name = "observation")
 	//@Length(min = 1, max = 250)
@@ -146,28 +122,36 @@ public class StudentEntity {
 		this.pass = pass;
 	}
 
-	public String getStudentName() {
-		return studentName;
+	public String getName() {
+		return name;
 	}
 
-	public void setStudentName(String studentName) {
-		this.studentName = studentName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getLastNameParent1() {
-		return lastNameParent1;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setLastNameParent1(String lastNameParent1) {
-		this.lastNameParent1 = lastNameParent1;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
-	public String getLastNameParent2() {
-		return lastNameParent2;
+	public String getGuardianName() {
+		return guardianName;
 	}
 
-	public void setLastNameParent2(String lastNameParent2) {
-		this.lastNameParent2 = lastNameParent2;
+	public void setGuardianName(String guardianName) {
+		this.guardianName = guardianName;
+	}
+
+	public String getGuardianLastName() {
+		return guardianLastName;
+	}
+
+	public void setGuardianLastName(String guardianLastName) {
+		this.guardianLastName = guardianLastName;
 	}
 
 	public Date getDateOfBirth() {
@@ -194,14 +178,6 @@ public class StudentEntity {
 		this.sex = sex;
 	}
 
-	public int getTelephone() {
-		return telephone;
-	}
-
-	public void setTelephone(int telephone) {
-		this.telephone = telephone;
-	}
-
 	public int getMobilePhone() {
 		return mobilePhone;
 	}
@@ -210,60 +186,28 @@ public class StudentEntity {
 		this.mobilePhone = mobilePhone;
 	}
 
-	public String getAddress() {
-		return address;
+	public String getCity() {
+		return city;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setCity(String city) {
+		this.city = city;
 	}
 
-	public String getParent1Name() {
-		return parent1Name;
+	public String getProvince() {
+		return province;
 	}
 
-	public void setParent1Name(String parent1Name) {
-		this.parent1Name = parent1Name;
+	public void setProvince(String province) {
+		this.province = province;
 	}
 
-	public String getParent2Name() {
-		return parent2Name;
+	public int getGuardianMobilePhone() {
+		return guardianMobilePhone;
 	}
 
-	public void setParent2Name(String parent2Name) {
-		this.parent2Name = parent2Name;
-	}
-
-	public int getParent1MobilePhone() {
-		return parent1MobilePhone;
-	}
-
-	public void setParent1MobilePhone(int parent1MobilePhone) {
-		this.parent1MobilePhone = parent1MobilePhone;
-	}
-
-	public int getParent2MobilePhone() {
-		return parent2MobilePhone;
-	}
-
-	public void setParent2MobilePhone(int parent2MobilePhone) {
-		this.parent2MobilePhone = parent2MobilePhone;
-	}
-
-	public String getParent1Profession() {
-		return parent1Profession;
-	}
-
-	public void setParent1Profession(String parent1Profession) {
-		this.parent1Profession = parent1Profession;
-	}
-
-	public String getParent2Profession() {
-		return parent2Profession;
-	}
-
-	public void setParent2Profession(String parent2Profession) {
-		this.parent2Profession = parent2Profession;
+	public void setGuardianMobilePhone(int guardianMobilePhone) {
+		this.guardianMobilePhone = guardianMobilePhone;
 	}
 
 	public String getObservation() {
@@ -281,7 +225,5 @@ public class StudentEntity {
 	public void setScoredRecord(List<ScoredRecordEntity> scoredRecord) {
 		this.scoredRecord = scoredRecord;
 	}
-	
 
-	
 }
