@@ -16,7 +16,7 @@ import com.rest.services.StaffService;
 
 
 @Controller
-public class StaffController {
+public class StaffController extends AbstractResourceController{
 	
 	@Autowired
 	private StaffService staffService;
@@ -36,6 +36,7 @@ public class StaffController {
 	@RequestMapping(value = "/staff", method = RequestMethod.POST)
 	@ResponseBody
 	public void postStaff(@RequestBody StaffEntity entity){
+		
 		staffService.saveStaff(entity);
 	}
 	

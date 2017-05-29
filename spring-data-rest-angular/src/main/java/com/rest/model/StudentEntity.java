@@ -27,72 +27,72 @@ public class StudentEntity {
 
 	@Column(name = "email")
 	//@Length(min = 3, max = 50)
-	@NotEmpty
+	//@NotEmpty
 	private String email;
 	
 	@Column(name = "pass")
 	//@Length(min = 3, max = 50)
-	@NotEmpty
+	//@NotEmpty
 	private String pass;
 	
 	@Column(name = "name")
 	//@Length(min = 3, max = 50)
-	@NotEmpty
+	//@NotEmpty
 	private String name;
 	
 	@Column(name = "lastName")
 	//@Length(min = 3, max = 50)
-	@NotEmpty
+	//@NotEmpty
 	private String lastName;
 
 	@Column(name = "guardianName")
 	//@Length(min = 3, max = 50)
-	@NotEmpty
+	//@NotEmpty
 	private String guardianName;
 
 	@Column(name = "guardianLastName")
 	//@Length(min = 3, max = 50)
-	@NotEmpty
+	//@NotEmpty
 	private String guardianLastName;
 
 	@Column(name = "dateOfBirth")
 	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern = "yyyy/MM/dd")
-	@NotEmpty
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	//@NotEmpty
 	private Date dateOfBirth;
 
 	@Column(name = "placeOfBirth")
 	//@Length(min = 0, max = 50)
-	@NotEmpty
+	//@NotEmpty
 	private String placeOfBirth;
 
 	@Column(name = "sex")
-	@NotEmpty
+	//@NotEmpty
 	private String sex;
 
 	@Column(name = "mobilePhone")
 	//@Digits(integer = 9, fraction = 0)
-	@NotEmpty
+	//@NotEmpty
 	private int mobilePhone;
 
 	@Column(name = "city")
 	//@Length(min = 1, max = 250)
-	@NotEmpty
+	//@NotEmpty
 	private String city;
 	
 	@Column(name = "province")
 	//@Length(min = 1, max = 250)
-	@NotEmpty
+	//@NotEmpty
 	private String province;
 
 	@Column(name = "guardianMobilePhone")
 	//@Digits(integer = 9, fraction = 0)
-	@NotEmpty
+	//@NotEmpty
 	private int guardianMobilePhone;
 
 	@Column(name = "observation")
 	//@Length(min = 1, max = 250)
-	@NotEmpty
+	//@NotEmpty
 	private String observation;
 	
 	@OneToMany(mappedBy = "student" ,cascade = CascadeType.ALL)

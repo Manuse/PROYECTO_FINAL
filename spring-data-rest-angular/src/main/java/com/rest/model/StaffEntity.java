@@ -33,49 +33,49 @@ public class StaffEntity {
 	private int staffId;
 	
 	@Column(name = "name")
-	@NotEmpty
+	//@NotEmpty
 	private String name;
 	
 	@Column(name = "lastName")
-	@NotEmpty
+	//@NotEmpty
 	private String lastName;
 	
 	@Column(name = "email")
-	@NotEmpty
+	//@NotEmpty
 	private String email;
 	
 	@Column(name = "pass")
-	@NotEmpty
+	//@NotEmpty
 	private String pass;
 
 	@Column( name = "dateOfBirth" )
 	@Temporal( TemporalType.DATE )
 	@DateTimeFormat( pattern = "yyyy/MM/dd" )
-	@NotEmpty
+	//@NotEmpty
 	private Date dateOfBirth;
 
 	@Column( name = "placeOfBirth" )
-	@Length( min = 0 , max = 50 )
-	@NotEmpty
+	//@Length( min = 0 , max = 50 )
+	//@NotEmpty
 	private String placeOfBirth;
 
 	@Column( name = "sex" )
-	@NotEmpty
+	//@NotEmpty
 	private String sex;
 
 	@Column( name = "mobilePhone" )
-	@Digits( integer = 9 , fraction = 0 )
-	@NotEmpty
+	//@Digits( integer = 9 , fraction = 0 )
+	//@NotEmpty
 	private int mobilePhone;
 
 	@Column( name = "city" )
-	@Length( min = 1 , max = 250)
-	@NotEmpty
+	//@Length( min = 1 , max = 250)
+	//@NotEmpty
 	private String city;
 	
 	@Column( name = "province" )
-	@Length( min = 1 , max = 250)
-	@NotEmpty
+	//@Length( min = 1 , max = 250)
+	//@NotEmpty
 	private String province;
 	
 	@ManyToOne
