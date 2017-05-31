@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.rest.model.StaffEntity;
+import com.rest.model.StudentEntity;
 import com.rest.services.StaffService;
 
 
@@ -20,6 +21,12 @@ public class StaffController extends AbstractResourceController{
 	
 	@Autowired
 	private StaffService staffService;
+	
+	@GetMapping(value = "/staff/login")
+	@ResponseBody
+	public StaffEntity staffLogin(@RequestParam("email") String email, @RequestParam("pass") String pass){
+		return staffService.login(email, pass);
+	}
 
 	@GetMapping(value = "/staff")
 	@ResponseBody

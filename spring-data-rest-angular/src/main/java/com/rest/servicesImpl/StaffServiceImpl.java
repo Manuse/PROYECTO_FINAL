@@ -21,6 +21,12 @@ public class StaffServiceImpl implements StaffService{
 	public StaffEntity getStaffById(int id) {
 		return repository.findByStaffId(id);
 	}
+	
+	@Override
+	@org.springframework.transaction.annotation.Transactional(readOnly = true)
+	public StaffEntity login(String email, String pass) {
+		return repository.login(email, pass);
+	}
 
 	@Override
 	@org.springframework.transaction.annotation.Transactional

@@ -27,6 +27,12 @@ public class SubjectController {
 		return subjectService.getSubjectById(id);
 	}
 	
+	@GetMapping(value = "/subject/code")
+	@ResponseBody
+	public SubjectEntity getSubjectByCode(@RequestParam("code") String code) {
+		return subjectService.getSubjectByCode(code);
+	}
+	
 	@GetMapping("/subject/list")
 	@ResponseBody
 	public List<SubjectEntity> getAllSubject(){

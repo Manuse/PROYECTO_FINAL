@@ -9,4 +9,5 @@ public interface SubjectRepository extends JpaRepository<SubjectEntity, Integer>
 
 	SubjectEntity findBySubjectId(int id);
 	
+	SubjectEntity findByCode(String code);
 }

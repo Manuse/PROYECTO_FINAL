@@ -13,4 +13,6 @@ public interface SubjectService {
 	void deleteSubject(SubjectEntity entity);
 	
 	List<SubjectEntity> listSubject();
+	
+	SubjectEntity getSubjectByCode(String code);
 }

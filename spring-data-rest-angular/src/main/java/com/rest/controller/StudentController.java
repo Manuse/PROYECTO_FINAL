@@ -39,14 +39,13 @@ public class StudentController extends AbstractResourceController{
 	//student subject enroll
 	@RequestMapping(value = "/student/enroll", method = RequestMethod.POST)
 	@ResponseBody
-	public void subjectEnroll(/*@RequestBody StudentEntity student,*/ @RequestParam("subject") int id){
-		StudentEntity student = studentService.getStudentById(1);
+	public void subjectEnroll(@RequestBody StudentEntity student, @RequestParam("subject") String code){
+		//StudentEntity student = studentService.getStudentById(1);
 		
 		//first we create the new parallelo
 		ScoredRecordEntity scoredRecordEntity = new ScoredRecordEntity();
-		scoredRecordEntity.setScoredRecordId(1);
 		scoredRecordEntity.setStudent(student);
-		scoredRecordEntity.setSubject(subjectService.getSubjectById(id));
+		scoredRecordEntity.setSubject(subjectService.getSubjectByCode(code));
 		
 		//we add to the DB
 		scoredRecordService.saveScoredRecord(scoredRecordEntity);

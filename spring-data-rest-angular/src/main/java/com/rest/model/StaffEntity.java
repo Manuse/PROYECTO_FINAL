@@ -22,6 +22,8 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table( name = "Staff" )
 public class StaffEntity {
@@ -79,6 +81,7 @@ public class StaffEntity {
 	private String province;
 	
 	@ManyToOne
+	@JsonIgnore
 	@JoinColumn(name = "staffTypeId")
 	private StaffTypeEntity staffTypeId;
 	

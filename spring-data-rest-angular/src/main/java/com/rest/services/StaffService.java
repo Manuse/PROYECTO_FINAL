@@ -14,4 +14,5 @@ public interface StaffService {
 	
 	List<StaffEntity> listStaff();
 	
+	StaffEntity login(String email, String pass);
 }

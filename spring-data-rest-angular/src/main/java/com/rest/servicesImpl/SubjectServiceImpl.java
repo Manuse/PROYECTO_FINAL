@@ -42,5 +42,10 @@ public class SubjectServiceImpl implements SubjectService {
 	public List<SubjectEntity> listSubject() {
 		return repository.findAll();
 	}
+
+	@Override
+	public SubjectEntity getSubjectByCode(String code) {
+		return repository.findByCode(code);
+	}
 	
 }
