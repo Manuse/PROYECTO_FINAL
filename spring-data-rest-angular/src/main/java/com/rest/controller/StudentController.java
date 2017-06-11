@@ -42,7 +42,7 @@ public class StudentController extends AbstractResourceController{
 	public void subjectEnroll(@RequestBody StudentEntity student, @RequestParam("subject") String code){
 		//StudentEntity student = studentService.getStudentById(1);
 		
-		//first we create the new parallelo
+		//first we create the new scoredRecord
 		ScoredRecordEntity scoredRecordEntity = new ScoredRecordEntity();
 		scoredRecordEntity.setStudent(student);
 		scoredRecordEntity.setSubject(subjectService.getSubjectByCode(code));
@@ -50,8 +50,12 @@ public class StudentController extends AbstractResourceController{
 		//we add to the DB
 		scoredRecordService.saveScoredRecord(scoredRecordEntity);
 		
+		System.out.println("----------------------------------------");
+		System.out.println("STUDENT -> "+scoredRecordEntity.getStudent().getStudentId());
+		System.out.println("SUBJECT -> "+scoredRecordEntity.getSubject().getSubjectId());
 		//we add the relation to the student
-		List<ScoredRecordEntity> lista = student.getScoredRecord();
+		
+		List<ScoredRecordEntity> lista = scoredRecordService.getScoredRecordByStudentId(student.getStudentId());
 		lista.add(scoredRecordEntity);
 		student.setScoredRecord(lista);
 		studentService.saveStudent(student);
