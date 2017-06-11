@@ -16,7 +16,7 @@ import com.rest.services.SubjectService;
 
 
 @Controller
-public class SubjectController {
+public class SubjectController extends AbstractResourceController{
 	
 	@Autowired
 	private SubjectService subjectService;

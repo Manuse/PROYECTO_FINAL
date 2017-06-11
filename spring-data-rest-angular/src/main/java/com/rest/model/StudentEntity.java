@@ -14,8 +14,12 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+
+import ch.qos.logback.classic.ViewStatusMessagesServlet;
 
 @Entity
 @Table(name = "Student")
@@ -95,7 +99,8 @@ public class StudentEntity {
 	//@NotEmpty
 	private String observation;
 	
-	@OneToMany(mappedBy = "student" ,cascade = CascadeType.ALL)
+	@JsonIgnore
+	@OneToMany(mappedBy = "student" ,cascade = CascadeType.ALL/*, fetch = FetchType.LAZY*/)
 	private List<ScoredRecordEntity> scoredRecord;
 
 	public int getStudentId() {

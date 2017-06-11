@@ -15,7 +15,7 @@ import com.rest.model.ScoredRecordEntity;
 import com.rest.services.ScoredRecordService;
 
 @Controller
-public class ScoredRecordController {
+public class ScoredRecordController extends AbstractResourceController{
 	
 	@Autowired
 	private ScoredRecordService scoredRecordService;
@@ -24,6 +24,12 @@ public class ScoredRecordController {
 	@ResponseBody
 	public ScoredRecordEntity getScoredRecordById(@RequestParam("id") int id) {
 		return scoredRecordService.getScoredRecordById(id);
+	}
+	
+	@GetMapping(value = "/scoredRecord/student")
+	@ResponseBody
+	public List<ScoredRecordEntity> getScoredRecordStudentsBySubject(@RequestParam("id") int id) {
+		return scoredRecordService.getScoredRecordByStudentId(id);
 	}
 	
 	@GetMapping("/scoredRecord/list")

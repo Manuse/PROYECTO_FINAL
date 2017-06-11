@@ -15,7 +15,7 @@ import com.rest.model.GradeParaleloEntity;
 import com.rest.services.GradeParaleloService;
 
 @Controller
-public class GradeParaleloController {
+public class GradeParaleloController extends AbstractResourceController{
 
 	@Autowired
 	private GradeParaleloService gradeParaleloService;

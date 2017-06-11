@@ -21,6 +21,8 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table( name = "Grade" )
 public class GradeEntity {
@@ -45,7 +47,8 @@ public class GradeEntity {
     @Length( min = 0 , max = 500 )
 	@NotEmpty
 	private String observation;
-	 
+	
+	@JsonIgnore
 	@OneToMany(mappedBy = "grade", cascade = CascadeType.ALL)
 	private List<GradeParaleloEntity> gradeParalelo;
 

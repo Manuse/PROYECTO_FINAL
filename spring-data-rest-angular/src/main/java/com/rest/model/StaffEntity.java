@@ -81,10 +81,10 @@ public class StaffEntity {
 	private String province;
 	
 	@ManyToOne
-	@JsonIgnore
 	@JoinColumn(name = "staffTypeId")
 	private StaffTypeEntity staffTypeId;
 	
+	//@JsonIgnore
 	@OneToMany(mappedBy = "staff", cascade = CascadeType.ALL)
 	private List<GradeParaleloEntity> gradeParalelo;
 

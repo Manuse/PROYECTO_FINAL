@@ -15,7 +15,7 @@ import com.rest.model.StaffTypeEntity;
 import com.rest.services.StaffTypeService;
 
 @Controller
-public class StaffTypeController {
+public class StaffTypeController extends AbstractResourceController{
 
 	@Autowired
 	private StaffTypeService staffTypeService;

@@ -12,6 +12,8 @@ public interface ScoredRecordService {
 	
 	void deleteScoredRecord(ScoredRecordEntity entity);
 	
+	List<ScoredRecordEntity> getScoredRecordByStudentId(int id);
+	
 	List<ScoredRecordEntity> listScoredRecord();
 	
 }

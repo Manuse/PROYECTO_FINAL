@@ -28,7 +28,7 @@ public class GradeParaleloEntity {
 
 	@ManyToOne
 	@JoinColumn(name = "grade")
-	@JsonIgnore
+	//@JsonIgnore
 	private GradeEntity grade;
 
 	@ManyToOne

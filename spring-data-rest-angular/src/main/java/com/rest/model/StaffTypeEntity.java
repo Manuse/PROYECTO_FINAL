@@ -15,6 +15,8 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table( name = "StaffType" )
 public class StaffTypeEntity {
@@ -29,6 +31,7 @@ public class StaffTypeEntity {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String name;
     
+	@JsonIgnore
 	@OneToMany(mappedBy = "staffTypeId", cascade = CascadeType.ALL)
 	private List<StaffEntity> staff;
 
