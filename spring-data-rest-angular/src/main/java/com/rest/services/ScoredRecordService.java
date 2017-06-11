@@ -14,5 +14,7 @@ public interface ScoredRecordService {
 	
 	List<ScoredRecordEntity> getScoredRecordByStudentId(int id);
 	
+	List<ScoredRecordEntity> getScoredRecordBySubjectId(int id);
+	
 	List<ScoredRecordEntity> listScoredRecord();
 }

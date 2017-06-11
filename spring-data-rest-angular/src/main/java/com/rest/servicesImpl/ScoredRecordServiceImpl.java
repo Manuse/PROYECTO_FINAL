@@ -50,5 +50,10 @@ public class ScoredRecordServiceImpl implements ScoredRecordService{
 	public List<ScoredRecordEntity> getScoredRecordByStudentId(int id) {
 		return repository.findByStudent(id);
 	}
+
+	@Override
+	public List<ScoredRecordEntity> getScoredRecordBySubjectId(int id) {
+		return repository.findBySubject(id);
+	}
 	
 }

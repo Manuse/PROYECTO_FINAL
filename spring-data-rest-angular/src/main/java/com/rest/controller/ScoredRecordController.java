@@ -28,8 +28,14 @@ public class ScoredRecordController extends AbstractResourceController{
 	
 	@GetMapping(value = "/scoredRecord/student")
 	@ResponseBody
-	public List<ScoredRecordEntity> getScoredRecordStudentsBySubject(@RequestParam("id") int id) {
+	public List<ScoredRecordEntity> getScoredRecordByStudentId(@RequestParam("id") int id) {
 		return scoredRecordService.getScoredRecordByStudentId(id);
+	}
+	
+	@GetMapping(value = "/scoredRecord/subject")
+	@ResponseBody
+	public List<ScoredRecordEntity> getScoredRecordBySubjectId(@RequestParam("id") int id) {
+		return scoredRecordService.getScoredRecordBySubjectId(id);
 	}
 	
 	@GetMapping("/scoredRecord/list")

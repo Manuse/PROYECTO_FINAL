@@ -19,4 +19,6 @@ public interface ScoredRecordRepository extends JpaRepository<ScoredRecordEntity
 	@Query("select a from ScoredRecordEntity a where a.student.studentId = ?")
 	List<ScoredRecordEntity> findByStudent(int id);
 	
+	@Query("select a from ScoredRecordEntity a where a.subject.subjectId = ?")
+	List<ScoredRecordEntity> findBySubject(int id);
 }
